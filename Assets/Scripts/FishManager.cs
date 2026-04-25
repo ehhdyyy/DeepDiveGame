@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 
+// FishManager is responsible for tracking number of fish player has collected. Also handles updating the UI display of fish count.
 public class FishManager : MonoBehaviour
 {
     public static FishManager Instance;

@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 
+// CoinManager handles the player's coin count, including adding coins when collected and spending coins on upgrades. It also updates the UI display of coins.
 public class CoinManager : MonoBehaviour
 {
     public static CoinManager Instance;
@@ -20,12 +21,14 @@ public class CoinManager : MonoBehaviour
         UpdateUI();
     }
 
+    // Call this to add coins when player collects them
     public void AddCoin(int amt)
     {
         coins += amt;
         UpdateUI();
     }
 
+    // Call this to spend coins when player buys upgrades
     public bool SpendCoins(int amount)
     {
         if (coins < amount)
@@ -36,11 +39,13 @@ public class CoinManager : MonoBehaviour
         return true;
     }
 
+    // Returns current coin counts for UI displays and other checks
     public int GetCoins()
     {
         return coins;
     }
 
+    // Updates coin count display in the UI
     private void UpdateUI()
     {
         if (coinText != null)

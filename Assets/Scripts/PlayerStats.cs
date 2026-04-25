@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// PlayerStats holds the player's current stats such as movement speed, oxygen capacity, and magnet range. Stats can be modified by upgrades. Used for UI displays and affects gameplay mechanics/experience.
 public class PlayerStats : MonoBehaviour
 {
     [Header("Base Stats")]

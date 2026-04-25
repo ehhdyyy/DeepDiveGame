@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// OxygenSystem manages the player's oxygen levels, including draining oxygen over time, refilling in safe zones, and handling death when oxygen runs out. It also updates the UI display of oxygen levels.
 public class OxygenSystem : MonoBehaviour
 {
     private PlayerStats stats;
@@ -24,6 +25,7 @@ public class OxygenSystem : MonoBehaviour
         UpdateUI();
     }
 
+    // Update is called once per frame. Handles oxygen drain and refill logic based on whether player is in a safe zone.
     void Update()
     {
         if (isInSafeZone)
@@ -36,6 +38,7 @@ public class OxygenSystem : MonoBehaviour
         }
     }
 
+    // Handles oxygen drain over time, updates UI, and triggers death sequence if oxygen runs out
     void DrainOxygen()
     {
         currentOxygen -= drainRate * Time.deltaTime;
@@ -56,6 +59,7 @@ public class OxygenSystem : MonoBehaviour
         }
     }
 
+    // Call this to refill oxygen when player collects oxygen bubbles or is in a safe zone
     public void RefillOxygen(float amount)
     {
         currentOxygen += amount;
@@ -66,7 +70,7 @@ public class OxygenSystem : MonoBehaviour
         UpdateUI();
     }
 
-        void UpdateUI()
+    void UpdateUI()
     {
         oxygenLabel.text = "Oxygen: " + currentOxygen.ToString("F0") + "/" + stats.maxOxygen.ToString("F0");
         oxygenSlider.maxValue = stats.maxOxygen;

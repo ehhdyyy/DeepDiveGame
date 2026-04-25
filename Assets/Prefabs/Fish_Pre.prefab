@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8215300957368368226}
-  - component: {fileID: 2712447743218741455}
   m_Layer: 0
   m_Name: Fish_Pre
   m_TagString: Fish
@@ -33,27 +32,6 @@ Transform:
   - {fileID: 8485139718834616591}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2712447743218741455
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8284216753628296283}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.62
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &9221620535236906188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,6 +83,14 @@ PrefabInstance:
     - target: {fileID: 736482141215372739, guid: 94c015d94f6e5364e9b36b960bbe1b77, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317411005216613472, guid: 94c015d94f6e5364e9b36b960bbe1b77, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317411005216613472, guid: 94c015d94f6e5364e9b36b960bbe1b77, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// FishPickup handles the behavior of fish objects in the game. Handles player collision to collect fish.
 public class FishPickup : MonoBehaviour
 {
     [SerializeField] private int fishValue = 1;
@@ -21,6 +22,7 @@ public class FishPickup : MonoBehaviour
         }
     }
 
+    // Magnet effect to move fish towards player when in range
     void Update()
     {
         if(player == null || playerStats == null)
@@ -34,6 +36,8 @@ public class FishPickup : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
     }
+
+    // Handle fish collection when player collides with it
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))

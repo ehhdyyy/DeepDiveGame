@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// PlayerController handles player movement based on input, including horizontal, vertical, and vertical (up/down) movement. It also manages animation states based on movement.
 public class PlayerController : MonoBehaviour
 {
     public Transform cam;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
         stats = GetComponent<PlayerStats>();
     }
 
+    // FixedUpdate is called at a fixed interval and is used for physics-based movement. It reads player input, calculates movement direction, applies velocity to the Rigidbody, and updates animation states.
     void FixedUpdate()
     {
         movementX = Input.GetAxis("Horizontal");
@@ -60,6 +62,7 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = velocity;
 
+        // Update animation speed parameter based on whether the player is moving
         float speedValue = (input.magnitude > 0.01f || Mathf.Abs(movementY) > 0.01f) ? 1f : 0f;
         animator.SetFloat("Speed", speedValue, 0.1f, Time.fixedDeltaTime);
     }

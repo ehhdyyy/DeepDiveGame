@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// CoinPickup handles the behavior of coin objects in the game. Handles player collision to collect coins as well as magnet effect to move coins towards players when in range. 
 public class CoinPickup : MonoBehaviour
 {
     [SerializeField] private int coinValue = 1;
@@ -21,6 +22,7 @@ public class CoinPickup : MonoBehaviour
         }
     }
 
+    // Magnet effect to move coin towards player when in range
     void Update()
     {
         if(player == null || playerStats == null)
@@ -34,6 +36,8 @@ public class CoinPickup : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
     }
+
+    // Handle coin collection when player collides with it
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))

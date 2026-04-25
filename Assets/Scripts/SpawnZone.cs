@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+
+// ZoneSpawner is responsible for spawning coins, oxygens, and fish within a defined area. Uses randomization and ensures all objects spawn above ground level.
 public class ZoneSpawner : MonoBehaviour
 {
     [Header("Prefabs")]
@@ -18,7 +20,7 @@ public class ZoneSpawner : MonoBehaviour
 
     [Header("Optional")]
     public Transform parentForSpawnedObjects;
-    public float groundOffset = 1.5f;
+    public float groundOffset = 2f;
 
     private float timer;
     private List<GameObject> spawnedObjects = new List<GameObject>();

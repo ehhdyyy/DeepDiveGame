@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// EnemyMovement controls the movement of shark enemies and their behavior of chasing players when close and patrolling between points. 
 public class EnemyMovement : MonoBehaviour
 {
     public Transform player;
@@ -17,6 +18,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Transform spawnZoneCenter;
     [SerializeField] private float spawnZoneRadius = 5f;
 
+    
+    // Main enemy movement logic: Chase player if close, otherwide patrol between points
     void Update()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -54,6 +57,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    // Handles movement and rotation towards a target position, either player or patrol point. Also ensures no spawn camping.
     void MoveTowards(Vector3 target)
     {
         Vector3 direction = (target - transform.position).normalized;

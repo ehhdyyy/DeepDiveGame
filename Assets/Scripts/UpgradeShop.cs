@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// UpgradeShop manages the in-game shop where players spend coins and upgrade their stats. Resposible for UI updates, handling upgrade purchases, and checking if all upgrades are maxed out for win condition. 
 public class UpgradeShop : MonoBehaviour
 {
     public static UpgradeShop Instance;
@@ -16,6 +17,10 @@ public class UpgradeShop : MonoBehaviour
     public TextMeshProUGUI oxygenText;
     public TextMeshProUGUI magnetText;
 
+    public TextMeshProUGUI currSpeedText;
+    public TextMeshProUGUI currOxygenText;
+    public TextMeshProUGUI currMagnetText;
+
     [Header("Buttons")]
     public Button speedButton;
     public Button oxygenButton;
@@ -26,7 +31,7 @@ public class UpgradeShop : MonoBehaviour
     public int speedMaxLevel = 5;
     public int speedCost = 1;
     public int speedCostIncrease = 2;
-    public float speedUpgradeAmount = 1f;
+    public float speedUpgradeAmount = 2f;
 
     [Header("Oxygen Upgrade")]
     public int oxygenLevel = 0;
@@ -40,7 +45,7 @@ public class UpgradeShop : MonoBehaviour
     public int magnetMaxLevel = 5;
     public int magnetCost = 1;
     public int magnetCostIncrease = 2;
-    public float magnetUpgradeAmount = 5f;
+    public float magnetUpgradeAmount = 2f;
 
     private void Awake()
     {
@@ -115,6 +120,7 @@ public class UpgradeShop : MonoBehaviour
         {
             speedText.text = "Speed\nLv. " + speedLevel + "/" + speedMaxLevel + "\nCost: " + speedCost;
             speedButton.interactable = true;
+            currSpeedText.text = "Speed: " + playerStats.moveSpeed;
         }
 
         if (oxygenLevel >= oxygenMaxLevel)
@@ -126,6 +132,7 @@ public class UpgradeShop : MonoBehaviour
         {
             oxygenText.text = "Oxygen\nLv. " + oxygenLevel + "/" + oxygenMaxLevel + "\nCost: " + oxygenCost;
             oxygenButton.interactable = true;
+            currOxygenText.text = "Oxygen: " + playerStats.maxOxygen;
         }
 
         if (magnetLevel >= magnetMaxLevel)
@@ -137,6 +144,7 @@ public class UpgradeShop : MonoBehaviour
         {
             magnetText.text = "Magnet\nLv. " + magnetLevel + "/" + magnetMaxLevel + "\nCost: " + magnetCost;
             magnetButton.interactable = true;
+            currMagnetText.text = "Range: " + playerStats.magnetRange;
         }
     }
 }

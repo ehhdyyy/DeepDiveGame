@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// SafeZone manages player's initial spawn area where oxygen does not drain. Refers to OxygenSystem by setting in and out safe flags.
 public class SafeZone : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)

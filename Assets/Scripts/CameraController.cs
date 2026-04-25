@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+// CameraController manages the main camera's position and rotation to follow player. Handles mouse input for rotating around player, zooming in and out, and shift lock mode to lock camera.
 public class CameraController : MonoBehaviour
 {
     [Header("Target")]
@@ -84,6 +86,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    // Ensure cursor state is applied correctly when toggling shift lock
     void ApplyCursorState()
     {
           if (shiftLockEnabled)

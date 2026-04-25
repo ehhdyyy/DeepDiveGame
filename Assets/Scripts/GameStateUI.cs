@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// GameStateUI manages all UI elements related to the game's state, including the start screen, game UI, and win/death screens. It also handles transitioning between these states and managing related audio and gameplay elements.
 public class GameStateUI : MonoBehaviour
 {
     [Header("UI")]
     public GameObject startScreen;
     public GameObject gameUI;
+
+    [Header("Cameras and VFX")]
     public GameObject startCam;
     public GameObject startCamVFX;
 
@@ -22,6 +25,8 @@ public class GameStateUI : MonoBehaviour
     public GameObject enemy;
     public GameObject spawnedObjectFolder;
 
+
+    // Triggered by start button on start screen. Transitions to game state by enabling/disabling relevant UI, audio, and gameplay objects.
     public void StartGame()
     {
         if (gameUI != null) gameUI.SetActive(true);
@@ -41,6 +46,7 @@ public class GameStateUI : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    // Triggered by restart button on win/death screens. Resets the scene to start fresh.
     public void ResetToFreshScene()
     {
         Time.timeScale = 1f;
